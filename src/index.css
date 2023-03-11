@@ -1,0 +1,645 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+     font-family: "Roboto", "Noto", sans-serif;
+    background: #000;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+:root{
+    --clr-primary-1: #0f0f0f;
+    --clr-text-1: rgba(255, 255, 255, 0.3);
+    --clr-text-2: rgba(255, 255, 255, 0.596);
+    --clr-border-1: hsla(0, 0%, 100%, 0.08);
+    --clr-border-2: hsl(0, 0%, 18.82%);
+    --clr-button-hover: rgb(39,39,39);
+    --clr-button-border: rgb(0, 140, 255);
+
+}
+
+/* ----------------Topbar Styling----------------- */
+
+.topbar{
+    background-color: var(--clr-primary-1);
+    height: 56px;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    margin: 0 auto;
+    width: 100%;
+    top: 0;
+}
+
+
+.logo, .search-box, .account-box{
+     display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    cursor: pointer;
+
+}
+
+.sidebar-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    color: #fff;
+    padding: 8px;
+    margin-right: 15px;
+    background-color: var(--clr-primary-1);
+    cursor: pointer;
+}
+
+.sidebar-icon:hover{
+    background-color: var(--clr-button-hover);
+
+}
+
+.logo img{
+    width: 90px;
+    height: auto;
+}
+
+.search-box{
+    width: 40rem;
+
+}
+
+.search-box input{
+    border: 1px solid var(--clr-border-1);
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    height: 40px;
+    gap: 5px;
+    padding: 0 20px;
+    caret-color: #838282;
+    outline: none;
+}
+
+.account-box{
+    gap: 30px;
+}
+
+.search-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--clr-border-1);
+    width:80px;
+    height: 40px;
+    border: none;
+    color: #fff;
+}
+
+.mic-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    color: #fff;
+    margin-left: 10px;
+    padding: 10px;
+
+}
+
+.mic-btn:hover{
+    background-color: var(--clr-button-hover);
+}
+
+.sign-in-btn{
+    padding: 6px 20px;
+    background-color: rgb(0, 0, 0);
+    border: 1px solid var(--clr-button-border) ;
+    color: var(--clr-button-border)  ;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 16px;
+    font-family: Poppins;
+    cursor: pointer;
+}
+
+/* ----------------Mobile Menu Styling----------------- */
+
+.mobile-menu{
+    display: none;
+}
+
+.mobile-menu.active{
+    background-color: rgb(161, 9, 9);
+}
+
+
+
+
+.mobile-links{
+    display: flex;
+    align-items: center;
+    color: #fff;
+    list-style: none;
+    justify-content: space-between;
+    padding: 1px 16px;
+}
+
+.link-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    margin: 0 auto;
+    max-height: 50px;
+    
+}
+
+Link {
+    text-decoration: none;
+}
+
+.mobile-links li{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 12px;
+
+}
+
+.mobile-links li a{
+    text-decoration: none;
+    color: #fff;
+    
+}
+
+
+/* ----------------Sidebar Styling----------------- */
+
+.sidebar{
+    background-color: var(--clr-primary-1);
+    display: none;
+    width: 15%;
+    height: 100vh;
+    padding: 10px 0px;
+    overflow: hidden;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: relative;
+    scrollbar-width: none;
+    left: -100%;
+}
+
+.sidebar.active{
+    left: 0;
+    display: block;
+    
+}
+
+.sidebar::-webkit-scrollbar-track {
+  border: 1px solid #000;
+  padding: 2px 0;
+  background-color: #404040;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #737272;
+  border: 1px solid #000;
+}
+
+.links hr{
+    width: 95%; 
+    height: 1px;
+    background-color: var(--clr-button-hover);
+    border: none;  
+    margin: 20px 0;
+}
+
+.links{
+    list-style: none;
+    color: #fff;
+}
+
+.links li{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    padding: 8px 10px 8px 20px;
+    cursor: pointer;
+     text-decoration: none;
+
+}
+
+.link-text{
+    color: #fff;
+    padding: 15px 20px;
+    font-size: 16px;
+}
+
+.links li:hover{
+    background-color: var(--clr-button-hover) ;
+
+}
+
+.links li a{
+    text-decoration: none;
+    list-style: none;
+    color: #fff;
+    font-size: 14px;
+}
+
+.react-icon{
+    width: 24px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+}
+
+.fa-icon{
+    width: 25px;
+    height: 25px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+}
+
+.yt-nav{
+    color: red;
+}
+
+
+/* ----------------Display Styling----------------- */
+
+.main{
+    display: flex;
+    gap: 5px;
+    width: auto;
+    
+
+}
+
+.display{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 20px 10px;
+    max-height: 100vh;
+    column-gap: 10px;
+
+    margin: 0 auto;
+    /* overflow: hidden;
+    overflow-y: scroll;
+    overflow-x: none; */
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    
+
+}
+
+.display::-webkit-scrollbar-track {
+  border: 1px solid #000;
+  padding: 2px 0;
+  background-color: #404040;
+}
+
+.display::-webkit-scrollbar {
+  width: 10px;
+}
+
+.display::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #737272;
+  border: 1px solid #000;
+}
+
+
+.channel-box{
+    display:flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 6px;
+}
+
+.channel-name-box{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #838282;
+
+}
+
+.channel-name{
+    padding-right: 3px;
+}
+
+.channel-pic{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    padding: 0 10px;
+    border-radius: 50px ;
+    overflow: hidden;
+    
+}
+
+.channel-pic img{
+    width: 40px;
+    height: auto;
+    
+
+}
+
+.video-card{
+    display: flex;
+    flex-direction: column;
+    padding: 5px 5px 5px 5px;
+    width: 100%;
+    max-height: auto;
+    color: #fff;
+    cursor: pointer;
+   
+    transition: all .5s ease-in-out;
+}
+
+
+.video-card:hover{
+   transform: scale(1.1);
+   
+}
+
+
+.video-title-box{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 75%;
+    margin: 0 10px 0 15px;
+}
+
+.video-name{
+    height: 36px;
+    font-weight: 400;
+    font-size: 14px;
+    font-weight: 500;
+    width: 200px; 
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+           line-clamp: 2; 
+   -webkit-box-orient: vertical;
+}
+
+.video-views{
+    line-height: 2;
+}
+
+.thumbnail{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 167px;
+    overflow: hidden;
+    background-color: aliceblue;
+    border-radius: 6px;
+    padding-bottom: 10px;
+}
+
+.thumbnail img{
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+
+/* ----------------Screen Sizing----------------- */
+
+
+@media screen and (max-width:900px) {
+
+   .mobile-menu{
+    justify-content: center;
+    display: block;
+    position: fixed;
+    width: 100%;
+    padding: 10px 15px;
+    transition: 1s;
+    bottom: 0px;
+    background-color: #000;
+    z-index: 1000;
+}
+
+    .mobile-menu-hide{
+    
+    bottom: -70px ; 
+
+    }
+
+    .logo{
+        
+        padding: 0 4px 0 0;
+    }
+
+   .sidebar-icon, .player-sidebar, .more-icon{
+    display: none;
+    }   
+
+
+    .sidebar{
+        display: flex;
+        left: 0;
+    }
+
+    .sidebar.active{
+        left: -100%;
+        display: none;
+    }
+
+    .search-box{
+        width: auto;
+    }
+
+    .search{
+        display: block;
+        width: 100%;
+    }
+
+    .account-box{
+    width: auto;
+    gap: 15px;
+}
+
+    .sign-in-btn{ 
+        width: 100%;
+        padding: 5px 5px;
+        font-size: 14px;
+        
+    }
+
+    .display{
+        padding: 5px;
+        grid-template-columns: 1fr 1fr;
+        margin: 0 auto;
+    }
+
+    .channel-name-box{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 0;
+
+    } 
+
+    .channel-box{
+    padding-top: 10px;
+
+    } 
+
+
+    .thumbnail{
+    height: 200px;
+    padding-bottom: 20px;
+    }
+    
+    .video-card{
+        width: 100%;
+        height: auto;
+    }
+
+    .video-name{
+        height: auto;
+        font-size: 14px;
+        width: 100%;
+ 
+
+    }
+
+    .thumbnail{
+        padding-bottom: 20px;
+    }
+}
+
+@media screen and (max-width:600px) {
+
+  
+
+     .logo{
+        
+        padding: 0 60px 0 0;
+    }
+
+   
+
+    .history-btn{
+        display: none;
+    }
+
+    .sidebar-icon, .player-sidebar, .more-icon{
+    display: none;
+    } 
+
+    .sidebar{
+        display: none;
+    }
+
+    .search-box{
+        padding: 0 20px;
+        width: auto;
+    }
+
+    .search {
+        display: none;
+    }
+
+    .search-btn{
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        padding: auto;
+        
+        
+    }
+
+    .mic-btn{
+        display: none;
+    }
+
+    .sign-in-btn{ 
+        width: 100%;
+        padding: 5px 5px;
+        font-size: 14px;
+    }
+
+    .display{
+        padding: 5px;
+        grid-template-columns: 1fr;
+        margin: 0 auto;
+    }
+
+     .channel-name-box{
+   
+    flex-direction: row;
+    margin-top: 0;
+
+    } 
+
+     .channel-name{
+   
+    font-size: 12px;
+
+    } 
+    
+    .video-card{
+        width: 100%;
+        height: auto;
+    }
+
+    .video-name{
+        height: auto;
+        font-size: 14px;
+        width: 100%;
+    }
+}
+
+

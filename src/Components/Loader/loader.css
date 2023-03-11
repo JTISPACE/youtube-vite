@@ -1,0 +1,115 @@
+.channel-box-loader{
+    display:flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 6px;
+
+}
+
+.channel-name-box-loader{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #838282;
+    
+
+}
+
+.channel-pic-loader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    padding: 0 10px;
+    border-radius: 50px;
+    overflow: hidden;
+    background-color: var(--clr-border-1);
+    
+}
+
+
+.video-card-loader{
+    display: flex;
+    flex-direction: column;
+    padding: 5px 5px 5px 5px;
+    width: 100%;
+    max-height: auto;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    transition: all .5s ease-in-out;
+    animation: skeleton 1s linear infinite alternate;
+}
+
+@keyframes skeleton {
+    0%{
+        background-color: hsla(0, 0%, 0%, 0.041);
+    }
+    
+    100%{
+        background-color: hsla(0, 2%, 8%, 0.651);
+    }
+}
+
+
+.video-card:hover{
+   transform: scale(1.1);
+   
+}
+
+
+.video-title-box-loader{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 75%;
+    margin: 0 10px 0 15px;
+    
+}
+
+.video-name-loader{
+    height: 20px;
+    width: auto;
+    margin-bottom: 5px;
+    background-color: var(--clr-border-1);
+    border-radius: 50px;
+}
+
+.video-name-loader-2{
+    height: 20px;
+    width: 90%;
+    background-color: var(--clr-border-1);
+    border-radius: 50px;
+}
+
+.channel-name-loader{
+    height: 20px;
+    width: 70%;
+    font-weight: 400;
+    margin-bottom: 5px;
+    font-size: 16px;
+    background-color: var(--clr-border-1);
+    border-radius: 50px;
+}
+
+.video-views-loader{
+    width: 50%;
+    height: 20px;
+    background-color: var(--clr-border-1);
+    border-radius: 50px;
+}
+
+.thumbnail-loader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 167px;
+    overflow: hidden;
+    background-color: var(--clr-border-1);
+    border-radius: 6px;
+    padding-bottom: 10px;
+}

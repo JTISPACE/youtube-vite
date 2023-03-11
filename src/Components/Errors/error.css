@@ -1,0 +1,27 @@
+.BiError{
+    font-size: 100px;
+    color: red;
+    padding: 10px;
+    
+}
+
+.errorMsg{
+    color: #fff;
+}
+
+.errorBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.displayErr{
+    width: 80vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
