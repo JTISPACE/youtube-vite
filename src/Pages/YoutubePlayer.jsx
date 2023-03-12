@@ -29,16 +29,16 @@ function YoutubePlayer() {
 
   //  const [commentData, setCommentData] = useState([]);
 
-  async function getvideoComment(comments) {
-    console.log(comments);
-  }
+  // async function getvideoComment(comments) {
+  //   console.log(comments);
+  // }
 
   return (
     <>
       <div className="videoplayer offset">
         <PlayerSidebar />
         <div className="videodetails">
-          <div className="videoplayer-frame">
+          <div key={videoId} className="videoplayer-frame">
             <Video videoId={videoId} />
           </div>
           {/* <div className='videoplayer__videoinfo'>

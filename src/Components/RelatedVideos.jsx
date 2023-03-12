@@ -71,7 +71,7 @@ function RelatedVideos({relatedVideoId} ) {
     <div>
         {(snippetData?.map(item =>{
 
-             return <Link key={item.videoId} to={`/video/${item.videoId}`} style={{textDecoration:"none"}} > <RelatedVidCard key={item.videoId} thumbnail={item.image} title={item.title}  channelTitle={item.channelTitle} channelPic={item.channelImage}  /></Link>
+             return <div key={item.videoId}><Link  to={`/video/${item.videoId}`} style={{textDecoration:"none"}} > <RelatedVidCard  thumbnail={item.image} title={item.title}  channelTitle={item.channelTitle} channelPic={item.channelImage}  /></Link></div>
                 
                 
             })
