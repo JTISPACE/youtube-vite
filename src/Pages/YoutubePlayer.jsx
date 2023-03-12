@@ -5,6 +5,7 @@ import Video from "../Components/Video/Video";
 import "./youtubeplayer.css";
 import RelatedVideos from "../Components/RelatedVideos";
 import PlayerSidebar from "../Components/PlayerSidebar";
+import { viteApi } from "../Components/Display";
 
 function YoutubePlayer() {
   const { videoId } = useParams();
@@ -15,7 +16,7 @@ function YoutubePlayer() {
   useEffect(() => {
     axios
       .get(
-        `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&videoId=${videoId}&key={process.env.REACT_APP_YOUTUBE_KEY}`
+        `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&videoId=${videoId}&key=${viteApi}`
       )
       .then((response) => {
         getvideoComment(response.data.items);

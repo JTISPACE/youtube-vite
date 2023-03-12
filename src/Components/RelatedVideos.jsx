@@ -5,6 +5,7 @@ import RelatedVidCard from './RelatedVideocard';
 import DisplayError from './Errors/DisplayError';
 import { DateTime } from 'luxon';
 import {useParams} from 'react-router-dom'
+import { viteApi } from './Display';
 
 function RelatedVideos({relatedVideoId} ) {
  
@@ -15,7 +16,7 @@ function RelatedVideos({relatedVideoId} ) {
     useEffect(() => {
       axios
         .get(
-          `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${relatedVideoId}&type=video&key={process.env.REACT_APP_YOUTUBE_KEY}`
+          `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${relatedVideoId}&type=video&key=${viteApi}`
         )
         .then((response) => {
           getvideoSnippet(response.data.items);

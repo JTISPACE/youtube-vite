@@ -8,6 +8,8 @@ import { toast } from 'react-toastify';
 import { Link, useLocation } from 'react-router-dom';
 import "./Search.css";
 
+import { viteApi } from '../Components/Display';
+
 
 
 
@@ -34,7 +36,7 @@ async function searchQuery(){
 
     try {
         const response =  await axios.get(
-           `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${searchValue}&key={process.env.REACT_APP_YOUTUBE_KEY}`
+           `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${searchValue}&key=${viteApi}`
          )
          getSearchData(response.data.items);
         

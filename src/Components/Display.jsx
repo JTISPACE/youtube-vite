@@ -1,3 +1,5 @@
+
+
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
@@ -16,6 +18,12 @@ import { useEffect,useRef } from "react";
 import { toast } from "react-toastify";
 
 
+
+
+
+export const viteApi = import.meta.env.VITE_APP_KEY
+
+
 function Display() {
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -23,6 +31,11 @@ function Display() {
 
  const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+
+  
+
+ 
+  
 
  const hideNav = ()=>{
     console.log(window.scrollY)
@@ -36,13 +49,19 @@ function Display() {
     
   }
 
-   console.log(document.getElementById('display').sc) ;
+   
 
 
   const dispatch = useDispatch();
 
   
+
+  console.log(viteApi)
+
+  
   const videos = JSON.parse(localStorage.getItem("videos"))
+
+  // require('dotenv').config()
 
 
   useEffect( () => {
@@ -54,7 +73,7 @@ function Display() {
 
       try {
       const response = await axios.get(
-          `https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=8&regionCode=NG&key={process.env.REACT_APP_YOUTUBE_KEY}`
+          `https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=8&regionCode=NG&key=${viteApi}`
         )
         getVideoSnippet(response.data.items);
         dispatch(save(response.data.items))
