@@ -462,7 +462,7 @@ Link {
     justify-content: center;
     display: block;
     position: fixed;
-    width: 100%;
+    width: 100vw;
     padding: 10px 15px;
     transition: 1s;
     bottom: 0px;

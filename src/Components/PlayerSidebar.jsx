@@ -15,13 +15,16 @@ import logo from "../img/YouTubeWhiteLogo.png";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { toggle } from "../States/ToggleState";
+import { pstoggle } from "../States/PSToggleState";
 
 import "../Components/playersidebar.css";
 
 function PlayerSidebar() {
   const dispatchToggle = useDispatch();
 
-  const toggleSide = useSelector((state) => state.toggle.value);
+  const toggleSide = useSelector((state) => state.pstoggle.value);
+
+  
 
   const [sidebarOver, setSidebarOver] = useState("");
 
@@ -33,9 +36,15 @@ function PlayerSidebar() {
     setSidebarOver("");
   }
 
-  function dispatchPsToggle() {
-    dispatchToggle(toggle({ payload: toggleSide }));
-  }
+//   function dispatchPsToggle() {
+   
+//  if(dispatchToggle(pstoggle("false"))) {
+//    dispatchToggle(pstoggle("true"))
+//  } else{
+//     dispatchToggle(pstoggle("false"))
+//   }
+// }
+  
 
   return (
     <>
@@ -44,12 +53,12 @@ function PlayerSidebar() {
       </div>
       <div
         className={`player-sidebar-overlay ${toggleSide && "active"}`}
-        onLoad={dispatchPsToggle}
+       
       >
         <div className={`player-sidebar ${toggleSide && "active"}`}>
           <div className="pg-sidebar-logo">
-            <button className="pg-sidebar-icon">
-              <FiMenu size={22} onClick={dispatchPsToggle} />
+            <button className="pg-sidebar-icon" >
+              <FiMenu size={22} onClick={()=>{dispatchToggle(pstoggle({payload:toggleSide}))}} />
             </button>
 
             <img src={logo} alt="youtube-logo" />
