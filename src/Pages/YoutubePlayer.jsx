@@ -13,19 +13,19 @@ function YoutubePlayer() {
   const [isError, setIsError] = useState(false);
   //  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    axios
-      .get(
-        `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&videoId=${videoId}&key=${viteApi}`
-      )
-      .then((response) => {
-        getvideoComment(response.data.items);
-      })
-      .catch((error) => {
-        console.log(error);
-        setIsError(true);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&videoId=${videoId}&key=${viteApi}`
+  //     )
+  //     .then((response) => {
+  //       getvideoComment(response.data.items);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       setIsError(true);
+  //     });
+  // }, []);
 
   //  const [commentData, setCommentData] = useState([]);
 

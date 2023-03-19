@@ -27,7 +27,7 @@ function Sidebar ({playerClassName}) {
 
     return (
       <>
-        <MobileMenu />
+        
 
         <div className={`sidebar ${toggleSide && 'active'}`}>
           <nav>

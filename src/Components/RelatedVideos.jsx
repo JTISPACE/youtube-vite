@@ -37,7 +37,8 @@ function RelatedVideos({relatedVideoId} ) {
         const newSnippet = [];
 
         for (const video of snippet){
-            const videoId = video.id
+            const videoId = video.id.videoId
+            console.log(videoId)
             const videoSnippet = video.snippet
             const channelId  = videoSnippet.channelId
             const title  = videoSnippet.title
