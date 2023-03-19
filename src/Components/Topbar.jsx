@@ -9,12 +9,19 @@ import { FiSearch } from 'react-icons/fi';
 import { FiMic } from 'react-icons/fi';
 import { FiMoreVertical } from 'react-icons/fi';
 import SearchBox from "./SearchBox";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+
+import { pstoggle } from "../States/PSToggleState";
+
 
 
 function Topbar (){
 
    const toggleSide = useSelector((state) => state.toggle.value);
+   const pstoggleSide = useSelector((state) => state.pstoggle.value);
+   const location = useLocation()
+
+   console.log(location.pathname)
 
   
 
@@ -33,12 +40,16 @@ function Topbar (){
 
      const dispatchSearch = useDispatch();
 
-    function dispatchSearchText(text){
-      
+    function dispatchSidebar(){
 
-      console.log(text);
+      if (location.pathname = "/"){
+        dispatchToggle(toggle({payload : toggleSide}))
+      }
 
-      dispatchSearch(search({payload : text }))
+      if(location.pathname = "/video/"){
+        dispatchToggle(pstoggle({payload : pstoggleSide}))
+      }
+  
 
     }
     
@@ -55,9 +66,7 @@ function Topbar (){
           <button className='sidebar-icon'>
             <FiMenu
               size={22}
-              onClick={() => {
-                dispatchToggle(toggle({payload : toggleSide}));
-              }}
+              onClick={dispatchSidebar}
             />
           </button>
 

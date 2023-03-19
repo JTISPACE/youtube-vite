@@ -309,6 +309,7 @@ Link {
     display: flex;
     gap: 5px;
     width: auto;
+    height: 100vh;
     
 
 }
@@ -316,8 +317,9 @@ Link {
 .display{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    padding: 20px 10px;
-    max-height: 100vh;
+    padding: 20px 10px 50px 10px;
+    /* max-height: 100vh; */
+
     column-gap: 10px;
 
     margin: 0 auto;
@@ -325,12 +327,17 @@ Link {
     overflow-y: scroll;
     overflow-x: none; */
     width: 100%;
-    overflow: hidden;
+    overflow: auto;
     overflow-y: scroll;
     overflow-x: hidden;
     
 
 }
+
+.display:last-child{
+    margin-bottom: 40px;
+}
+
 
 .display::-webkit-scrollbar-track {
   border: 1px solid #000;
@@ -404,6 +411,7 @@ Link {
 }
 
 
+
 .video-card:hover{
    transform: scale(1.1);
    
@@ -458,11 +466,15 @@ Link {
 
 @media screen and (max-width:900px) {
 
+    .display:last-child{
+        margin-bottom: 80px;
+    }
+
    .mobile-menu{
     justify-content: center;
     display: block;
     position: fixed;
-    width: 100%;
+    width: 100vw;
     padding: 10px 15px;
     transition: 1s;
     bottom: 0px;

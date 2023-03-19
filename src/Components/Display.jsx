@@ -11,11 +11,11 @@ import Videocard from "./Videocard";
 import { useDispatch } from "react-redux";
 import { toggle } from "../States/ToggleState";
 import { save, getStore, search } from "../States/VideoStore";
-import { useSelector } from "react-redux";
 
 
-import { useEffect,useRef } from "react";
+import { useEffect} from "react";
 import { toast } from "react-toastify";
+import MobileMenu from "./MobileMenu";
 
 
 
@@ -28,26 +28,18 @@ function Display() {
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [snippetData, setSnippetData] = useState([]);
+  const [lastScrollY, setLastScrollY] = useState(false);
 
- const [show, setShow] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
+  const handleScroll = (e) => {
+    const { scrollTop } = e.target;
+    console.log(scrollTop)
+    setLastScrollY(scrollTop > 100);
+
+  };
   
 
- 
-  
 
- const hideNav = ()=>{
-    console.log(window.scrollY)
-    // if(window.scrollY >= 80){
-    //   console.log('scroll')
-    //   setNavbar(true);
-
-    // }else{
-    //   setNavbar(false);
-    // }
-    
-  }
 
    
 
@@ -56,7 +48,7 @@ function Display() {
 
   
 
-  console.log(viteApi)
+  
 
   
   const videos = JSON.parse(localStorage.getItem("videos"))
@@ -73,7 +65,7 @@ function Display() {
 
       try {
       const response = await axios.get(
-          `https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=8&regionCode=NG&key=${viteApi}`
+          `https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=16&regionCode=NG&key=${viteApi}`
         )
         getVideoSnippet(response.data.items);
         dispatch(save(response.data.items))
@@ -145,7 +137,9 @@ function Display() {
 
   return (
     <>
-      <div id="display" className="display offset">
+    {lastScrollY ? null : <MobileMenu/>}
+    
+      <div id="display"  className="display offset" onScroll={handleScroll}>
         {isLoading ? (
           <Loader type={"feed"} />
         ) : (
@@ -168,6 +162,7 @@ function Display() {
                   views={item.views}
                 />
               </Link>
+              
               </div>
             );
           })

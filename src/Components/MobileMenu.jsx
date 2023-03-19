@@ -32,7 +32,7 @@ function MobileMenu() {
 
   return (
     <>
-      <div className={navbar ? `mobile-menu active ` : `mobile-menu`}>
+      <div className={`mobile-menu`}>
         <ul className="mobile-links">
           <div className="link-box">
             <Link to={"/"} style={{ textDecoration: "none", color: "#fff" }}>
