@@ -1,0 +1,5 @@
+I had to find a way of developing more of my coding skills by taking on advance projects,
+I developed a youtube clone fetching data with youtube Api
+This was done with ReactJS (ViteJS) my first time using ViteJS with react.
+It feels being able to write the code from scratch and using redux for state management and react router as well
+here is the link to the project on vercel https://youtube-clone-project-opal.vercel.app/
